@@ -1,6 +1,15 @@
-function fetchBooks() {
 
-}
+
+
+function fetchBooks() {
+  let books = fetch('https://anapioficeandfire.com/api/books') 
+  //sending a get reqest
+  .then(resp => resp.json())
+  //getting response and turning it into readable json
+  .then(json => renderBooks(json));
+  
+  return books
+};
 
 function renderBooks(json) {
   const main = document.querySelector('main')
@@ -13,4 +22,6 @@ function renderBooks(json) {
 
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks()
+
 })
+
